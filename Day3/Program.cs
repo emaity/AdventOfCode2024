@@ -1,7 +1,8 @@
 ﻿using System.Text.RegularExpressions;
 
 // Uses positive lookaround to match the beginning mul( and ending ), leaving only the numbers and comma.
-string pattern = @"(?<=mul\()\d+,\d+(?=\))";
+// string pattern = @"(?<=mul\()\d+,\d+(?=\))";
+string pattern = @"((?<!(do\(\)|don't\(\)).*)(?<=mul\()\d+,\d+(?=\)))|((?<!don't\(\))(?<=do\(\).*(mul\())(\d+,\d+)(?=\)))";
 string text = File.ReadAllText("input.txt");
 
 Regex rgx = new Regex(pattern, RegexOptions.None, TimeSpan.FromSeconds(5));
