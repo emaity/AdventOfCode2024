@@ -7,6 +7,7 @@
 .vscode/
 # AoC input files
 input.txt
+testinput.txt
 
 # dotenv files
 .env
